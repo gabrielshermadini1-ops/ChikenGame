@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#7ad65c">
+  <title>Parrot Crossing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Parrot Crossing game"></canvas>
+
+  <!-- Heads-up display: kept small so it never covers the action -->
+  <header class="hud">
+    <div class="brand">PARROT CROSSING</div>
+    <div class="scores">
+      <div class="score" id="score">0</div>
+      <div class="best">Best <span id="best">0</span></div>
+    </div>
+    <button id="pauseBtn" class="icon-btn" aria-label="Pause" title="Pause (Space / Esc)">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Start screen -->
+  <section id="startScreen" class="overlay visible">
+    <div class="card">
+      <h1>PARROT<br>CROSSING</h1>
+      <p class="lead">Hop across busy roads and drifting logs. How far can your parrot fly?</p>
+      <button id="playBtn" class="btn">Play</button>
+      <p class="hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys to hop &middot; <kbd>Space</kbd> pauses</p>
+      <p class="hint touch-hint">Tap the arrows, or swipe along the lanes</p>
+    </div>
+  </section>
+
+  <!-- Pause screen -->
+  <section id="pauseScreen" class="overlay">
+    <div class="card small">
+      <h2>Paused</h2>
+      <button id="resumeBtn" class="btn">Resume</button>
+    </div>
+  </section>
+
+  <!-- Game over screen -->
+  <section id="overScreen" class="overlay">
+    <div class="card">
+      <h2>Game over</h2>
+      <div class="final" id="finalScore">0</div>
+      <p class="lead" id="overNote">Best <span id="finalBest">0</span></p>
+      <button id="restartBtn" class="btn">Restart</button>
+      <p class="hint">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to go again</p>
+    </div>
+  </section>
+
+  <!-- Touch controls -->
+  <nav id="dpad" aria-label="Directional controls">
+    <button class="pad up" data-dir="f" aria-label="Forward">&#9650;</button>
+    <button class="pad left" data-dir="l" aria-label="Left">&#9664;</button>
+    <button class="pad right" data-dir="r" aria-label="Right">&#9654;</button>
+    <button class="pad down" data-dir="b" aria-label="Back">&#9660;</button>
+  </nav>
+
+  <script src="game.js"></script>
+</body>
+</html>
